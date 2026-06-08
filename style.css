@@ -1,0 +1,28 @@
+:root {
+    --bg-color: #F8F9FA;
+    --text-color: #2D3436;
+    --primary-color: #FF85A1;
+    --secondary-color: #FFB347;
+    --card-bg: #FFFFFF;
+    --input-bg: #FFF9FA;
+}
+[data-theme="dark"] {
+    --bg-color: #2D3436;
+    --text-color: #F8F9FA;
+    --primary-color: #FF477E;
+    --card-bg: #343A40;
+    --input-bg: #495057;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: '맑은 고딕', sans-serif; transition: background-color 0.3s, color 0.3s; }
+body { background-color: var(--bg-color); color: var(--text-color); display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.theme-toggle { position: absolute; top: 20px; right: 20px; }
+.theme-toggle button { padding: 8px 16px; border-radius: 20px; border: 1px solid var(--primary-color); background: transparent; color: var(--text-color); cursor: pointer; }
+.container { width: 100%; max-width: 450px; padding: 20px; }
+.screen { display: none; text-align: center; background: var(--card-bg); padding: 40px 30px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.screen.active { display: block; animation: fadeIn 0.5s ease; }
+.logo { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 10px; }
+.subtitle { margin-bottom: 30px; opacity: 0.8; }
+.input-group input { width: 100%; padding: 15px; margin-bottom: 15px; border: 2px solid #FFE4E6; border-radius: 16px; background: var(--input-bg); color: var(--text-color); font-size: 1rem; outline: none; }
+.input-group input:focus { border-color: var(--primary-color); }
+.main-btn { width: 100%; padding: 15px; background: var(--primary-color); color: white; border: none; border-radius: 16px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
