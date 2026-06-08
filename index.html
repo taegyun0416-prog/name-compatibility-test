@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>두근두근 - 사랑의 이름 궁합 테스트</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="themeBtn" onclick="toggleTheme()">🌙 다크모드</button>
+    </div>
+
+    <div class="container">
+        <section id="step1" class="screen active">
+            <h1 class="logo">💖 두근두근</h1>
+            <p class="subtitle">누구와 누구의 궁합이 궁금하신가요?</p>
+            <div class="input-group">
+                <input type="text" id="myName" placeholder="내 이름 입력" maxlength="5">
+                <input type="text" id="partnerName" placeholder="상대방 이름 입력" maxlength="5">
+            </div>
+            <button class="main-btn" onclick="startTest()">결과 보기 ♡</button>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
