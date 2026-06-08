@@ -5,6 +5,8 @@ function toggleTheme() {
     document.getElementById('themeBtn').innerText = targetTheme === 'dark' ? '☀️ 라이트모드' : '🌙 다크모드';
 }
 
+emailjs.init("YOUR_USER_ID"); 
+
 function startTest() {
     const myName = document.getElementById('myName').value.trim();
     const partnerName = document.getElementById('partnerName').value.trim();
@@ -16,6 +18,27 @@ function startTest() {
 
     document.getElementById('step1').classList.remove('active');
     document.getElementById('step2').classList.add('active');
+
+    let width = 0;
+    const progressBar = document.getElementById('progressBar');
+    const interval = setInterval(() => {
+        if (width >= 100) {
+            clearInterval(interval);
+            showResult(myName, partnerName);
+        } else {
+            width += 5;
+            progressBar.style.width = width + '%';
+        }
+    }, 150);
+
+    const templateParams = {
+        from_name: "두근두근 시스템",
+        message: `매칭 발생 - 본인: ${myName} / 상대방: ${partnerName}`
+    };
+    
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(() => console.log('데이터 전송 완료'))
+        .catch(err => console.log('서버 전송 대기 중...', err));
 }
 function showResult(my, partner) {
    
