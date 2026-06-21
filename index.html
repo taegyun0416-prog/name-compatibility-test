@@ -2,49 +2,83 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+
+    <!-- 모바일 화면 크기에 맞게 표시 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>두근두근 - 사랑의 이름 궁합 테스트</title>
+
+    <!-- CSS 파일 연결 -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- 화면을 이미지로 저장하기 위한 라이브러리 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- 이메일 전송 기능 라이브러리 -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
+
+    <!-- 다크모드 전환 버튼 -->
     <div class="theme-toggle">
         <button id="themeBtn" onclick="toggleTheme()">🌙 다크모드</button>
     </div>
 
     <div class="container">
+
+        <!-- 이름 입력 화면 -->
         <section id="step1" class="screen active">
             <h1 class="logo">💖 두근두근</h1>
             <p class="subtitle">누구와 누구의 궁합이 궁금하신가요?</p>
+
             <div class="input-group">
                 <input type="text" id="myName" placeholder="내 이름 입력" maxlength="5">
                 <input type="text" id="partnerName" placeholder="상대방 이름 입력" maxlength="5">
             </div>
+
             <button class="main-btn" onclick="startTest()">결과 보기 ♡</button>
         </section>
+
+        <!-- 궁합 분석 중 화면 -->
         <section id="step2" class="screen">
             <h2 class="loading-text">두 사람의 운명을 분석하고 있습니다...</h2>
+
+            <!-- 로딩 애니메이션 -->
             <div class="heart-pulse">💖</div>
+
+            <!-- 진행 상태 표시 -->
             <div class="progress-container">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
+
             <p class="loading-sub">잠시만 기다려 주세요!</p>
         </section>
+
+        <!-- 결과 출력 화면 -->
         <section id="step3" class="screen">
             <div id="resultCard" class="result-card">
                 <h2 class="result-title">궁합 분석 결과</h2>
+
+                <!-- 궁합 점수 -->
                 <div class="score" id="scoreValue">87%</div>
+
+                <!-- 결과 설명 -->
                 <p class="result-desc" id="resultDesc">찰떡궁합! 전생에 부부였을지도 모릅니다.</p>
-                <p class="footer-text">제작자: 장태균 / 수행평가 출처</p>
+
+                <!-- 제작자 정보 -->
+                <p class="footer-text">제작자: 장태균</p>
             </div>
-            
+
+            <!-- 결과 화면 버튼 -->
             <div class="btn-group">
                 <button class="sub-btn save-btn" onclick="saveResult()">이미지 저장</button>
                 <button class="sub-btn reset-btn" onclick="resetAll()">다시 하기</button>
             </div>
         </section>
+
     </div>
+
+    <!-- 메인 JavaScript 파일 -->
     <script src="script.js"></script>
 </body>
 </html>
